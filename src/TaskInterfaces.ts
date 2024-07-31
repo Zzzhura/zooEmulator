@@ -2,6 +2,8 @@ export interface Animal {
   name: string;
   neededBiom: string;
   needOfReservoir: true;
+  neededSquare: number;
+  necessaryFood: string;
 }
 
 export interface Cage {
