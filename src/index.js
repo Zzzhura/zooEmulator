@@ -1,14 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var TaskInterfaces_1 = require("./TaskInterfaces");
-var bear = { name: "bear", neededBiom: "tundra", needOfReservoir: true };
-var cage1 = { biom: "tundra", square: 10.5, hasReservoir: true };
-var cage2 = { biom: "dessert", square: 100.12, hasReservoir: false };
-var cage3 = { biom: "forest", square: 55.125, hasReservoir: true };
 var arrayOfCages = new Array();
-arrayOfCages.push(cage1);
-arrayOfCages.push(cage2);
-arrayOfCages.push(cage3);
 var zoo = { cages: arrayOfCages };
-(0, TaskInterfaces_1.printInfo)(bear);
 console.log(zoo);
