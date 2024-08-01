@@ -10,6 +10,7 @@ export interface Cage {
   biom: string;
   square: number;
   hasReservoir: boolean;
+  members: Animal[];
  }
 
 export interface Zoo {
