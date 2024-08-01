@@ -11,14 +11,14 @@ export interface Cage {
   square: number;
   hasReservoir: boolean;
   members: Animal[];
- }
+}
 
 export interface Zoo {
   cages: Cage[];
- }
+}
 
 export function printInfo(animal: Animal) {
   console.log(
-    animal.name + " " + animal.needOfReservoir + " " + animal.neededBiom,
+    animal.name + " " + animal.needOfReservoir + " " + animal.neededBiom
   );
 }
