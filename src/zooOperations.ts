@@ -4,7 +4,8 @@ export function addAnimalToCage(animal: Animal, cage: Cage) {
   if (
     cage.square - animal.neededSquare >= 0 &&
     cage.biom == animal.neededBiom &&
-    cage.hasReservoir == animal.needOfReservoir
+    cage.hasReservoir == animal.needOfReservoir &&
+    cage.isForPredators == animal.isPredator
   ) {
     cage.members.push(animal);
     cage.square = cage.square - animal.neededSquare;

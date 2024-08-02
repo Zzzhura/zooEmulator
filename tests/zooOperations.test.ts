@@ -99,5 +99,45 @@ describe("testing zooOperations", () => {
       isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+    });
+  
+  test("adding predator to no predator cage", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "tundra",
+      needOfReservoir: false,
+      neededSquare: 10000,
+      necessaryFood: "meat",
+      isPredator: true
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 1000,
+      hasReservoir: true,
+      members: cageMembers,
+      isForPredators: false
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+  });
+
+  test("adding no predator to predator cage", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "tundra",
+      needOfReservoir: false,
+      neededSquare: 10000,
+      necessaryFood: "meat",
+      isPredator: false
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 1000,
+      hasReservoir: true,
+      members: cageMembers,
+      isForPredators: true
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
   });
 });
