@@ -4,6 +4,7 @@ export interface Animal {
   needOfReservoir: boolean;
   neededSquare: number;
   necessaryFood: string;
+  isPredator: boolean
 }
 
 export interface Cage {
