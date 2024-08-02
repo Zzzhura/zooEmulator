@@ -9,6 +9,7 @@ describe("testing zooOperations", () => {
       needOfReservoir: true,
       neededSquare: 25.5,
       necessaryFood: "meat",
+      isPredator: true
     };
     let cageMembers: Animal[] = new Array();
     let tundraCage: Cage = {
@@ -27,6 +28,7 @@ describe("testing zooOperations", () => {
       needOfReservoir: true,
       neededSquare: 10000,
       necessaryFood: "meat",
+      isPredator: true
     };
     let cageMembers: Animal[] = new Array();
     let tundraCage: Cage = {
@@ -45,6 +47,7 @@ describe("testing zooOperations", () => {
       needOfReservoir: true,
       neededSquare: 100,
       necessaryFood: "meat",
+      isPredator: true
     };
     let cageMembers: Animal[] = new Array();
     let tundraCage: Cage = {
@@ -63,6 +66,7 @@ describe("testing zooOperations", () => {
       needOfReservoir: true,
       neededSquare: 10000,
       necessaryFood: "meat",
+      isPredator: true
     };
     let cageMembers: Animal[] = new Array();
     let tundraCage: Cage = {
@@ -80,6 +84,7 @@ describe("testing zooOperations", () => {
       needOfReservoir: false,
       neededSquare: 10000,
       necessaryFood: "meat",
+      isPredator: true
     };
     let cageMembers: Animal[] = new Array();
     let tundraCage: Cage = {
