@@ -17,6 +17,7 @@ describe("testing zooOperations", () => {
       square: 1000,
       hasReservoir: true,
       members: cageMembers,
+      isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(true);
   });
@@ -36,6 +37,7 @@ describe("testing zooOperations", () => {
       square: 1000,
       hasReservoir: true,
       members: cageMembers,
+      isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(false);
   });
@@ -55,6 +57,7 @@ describe("testing zooOperations", () => {
       square: 0,
       hasReservoir: true,
       members: cageMembers,
+      isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(false);
   });
@@ -74,6 +77,7 @@ describe("testing zooOperations", () => {
       square: 1000,
       hasReservoir: true,
       members: cageMembers,
+      isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(false);
     });
@@ -92,6 +96,7 @@ describe("testing zooOperations", () => {
       square: 1000,
       hasReservoir: true,
       members: cageMembers,
+      isForPredators: true
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(false);
   });

@@ -12,6 +12,7 @@ export interface Cage {
   square: number;
   hasReservoir: boolean;
   members: Animal[];
+  isForPredators: boolean
 }
 
 export interface Zoo {
