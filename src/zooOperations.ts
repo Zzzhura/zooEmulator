@@ -18,4 +18,17 @@ export function addAnimalToCage(animal: Animal, cage: Cage) {
   }
 }
 
+export function calculateAmountOfFoodForCage(cage: Cage) {
+  let amountOfFood: number = 0;
+  if (cage.members.length == 0) {
+    console.log('Cage is empty')
+    return amountOfFood;
+  } else {
+    for (let i = 0; i < cage.members.length; i++) {
+      amountOfFood = amountOfFood + cage.members[i].necessaryFood;
+    }
+  }
+  return amountOfFood;
+ }
+
 

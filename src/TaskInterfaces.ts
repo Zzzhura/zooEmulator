@@ -3,8 +3,8 @@ export interface Animal {
   neededBiom: string;
   needOfReservoir: boolean;
   neededSquare: number;
-  necessaryFood: string;
-  isPredator: boolean
+  necessaryFood: number; // If predator necessaryFood == 1 means 1 kg for animal.
+  isPredator: boolean;
 }
 
 export interface Cage {
@@ -12,7 +12,7 @@ export interface Cage {
   square: number;
   hasReservoir: boolean;
   members: Animal[];
-  isForPredators: boolean
+  isForPredators: boolean;
 }
 
 export interface Zoo {
