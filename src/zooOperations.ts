@@ -3,7 +3,8 @@ import { Animal, Cage, Zoo } from "./TaskInterfaces";
 export function addAnimalToCage(animal: Animal, cage: Cage) {
   if (
     cage.square - animal.neededSquare >= 0 &&
-    cage.biom == animal.neededBiom
+    cage.biom == animal.neededBiom &&
+    cage.hasReservoir == animal.needOfReservoir
   ) {
     cage.members.push(animal);
     cage.square = cage.square - animal.neededSquare;
@@ -11,7 +12,9 @@ export function addAnimalToCage(animal: Animal, cage: Cage) {
     console.log("current square of cage is " + cage.square);
     return true;
   } else {
-    throw console.error("There's no space to add " + animal.name);
+    console.error("There's no space to add " + animal.name);
     return false;
   }
 }
+
+

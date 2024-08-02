@@ -1,7 +1,7 @@
 export interface Animal {
   name: string;
   neededBiom: string;
-  needOfReservoir: true;
+  needOfReservoir: boolean;
   neededSquare: number;
   necessaryFood: string;
 }

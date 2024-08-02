@@ -19,4 +19,75 @@ describe("testing zooOperations", () => {
     };
     expect(addAnimalToCage(bear, tundraCage)).toBe(true);
   });
+
+  test("adding animal with incorrect square", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "tundra",
+      needOfReservoir: true,
+      neededSquare: 10000,
+      necessaryFood: "meat",
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 1000,
+      hasReservoir: true,
+      members: cageMembers,
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+  });
+
+  test("incorrect cage square", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "tundra",
+      needOfReservoir: true,
+      neededSquare: 100,
+      necessaryFood: "meat",
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 0,
+      hasReservoir: true,
+      members: cageMembers,
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+  });
+
+    test("adding animal with incorrect biom to the cage", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "forest",
+      needOfReservoir: true,
+      neededSquare: 10000,
+      necessaryFood: "meat",
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 1000,
+      hasReservoir: true,
+      members: cageMembers,
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+    });
+    test("adding animal with no need in water reservoir", () => {
+    let bear: Animal = {
+      name: "bear",
+      neededBiom: "tundra",
+      needOfReservoir: false,
+      neededSquare: 10000,
+      necessaryFood: "meat",
+    };
+    let cageMembers: Animal[] = new Array();
+    let tundraCage: Cage = {
+      biom: "tundra",
+      square: 1000,
+      hasReservoir: true,
+      members: cageMembers,
+    };
+    expect(addAnimalToCage(bear, tundraCage)).toBe(false);
+  });
 });
