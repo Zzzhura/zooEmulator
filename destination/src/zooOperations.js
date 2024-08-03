@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addAnimalToCage = addAnimalToCage;
+exports.compareAnimalToCageProps = compareAnimalToCageProps;
 exports.calculateAmountOfFoodForCage = calculateAmountOfFoodForCage;
+exports.isAnimalHasNeededType = isAnimalHasNeededType;
 function addAnimalToCage(animal, cage) {
-    if (cage.square - animal.neededSquare >= 0 &&
-        cage.biom == animal.neededBiom &&
-        cage.hasReservoir == animal.needOfReservoir &&
-        cage.isForPredators == animal.isPredator) {
+    if (compareAnimalToCageProps(animal, cage)) {
         cage.members.push(animal);
         cage.square = cage.square - animal.neededSquare;
         console.log(animal.name + "added to cage");
@@ -18,10 +17,21 @@ function addAnimalToCage(animal, cage) {
         return false;
     }
 }
+function compareAnimalToCageProps(animal, cage) {
+    if (cage.square - animal.neededSquare >= 0 &&
+        cage.biom == animal.neededBiom &&
+        cage.hasReservoir == animal.needOfReservoir &&
+        cage.isForPredators == animal.isPredator) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 function calculateAmountOfFoodForCage(cage) {
     let amountOfFood = 0;
     if (cage.members.length == 0) {
-        console.log('Cage is empty');
+        console.log("Cage is empty");
         return amountOfFood;
     }
     else {
@@ -30,4 +40,7 @@ function calculateAmountOfFoodForCage(cage) {
         }
     }
     return amountOfFood;
+}
+function isAnimalHasNeededType(animal, cage) {
+    return animal.isPredator == cage.isForPredators ? true : false;
 }

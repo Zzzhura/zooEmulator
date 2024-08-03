@@ -168,4 +168,122 @@ describe("testing calculateAmountOfFoodForCage", () => {
         (0, zooOperations_1.addAnimalToCage)(bear, cage);
         expect((0, zooOperations_1.calculateAmountOfFoodForCage)(cage)).toBe(10);
     });
+    describe("testing isAnimalHasNeededType ", () => {
+        test("adding not predator to predator cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: false,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 1000,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: true,
+            };
+            expect((0, zooOperations_1.isAnimalHasNeededType)(someAnimal, cage)).toBe(false);
+        });
+        test("adding predator to predator cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: true,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 1000,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: true,
+            };
+            expect((0, zooOperations_1.isAnimalHasNeededType)(someAnimal, cage)).toBe(true);
+        });
+        test("adding not predator to not predator cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: false,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 1000,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: false,
+            };
+            expect((0, zooOperations_1.isAnimalHasNeededType)(someAnimal, cage)).toBe(true);
+        });
+        test("adding predator to not predator cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: true,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 1000,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: false,
+            };
+            expect((0, zooOperations_1.isAnimalHasNeededType)(someAnimal, cage)).toBe(false);
+        });
+    });
+    describe("testing compareAnimalToCageProps", () => {
+        test("compare identical props for animal and cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: true,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 1000,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: true,
+            };
+            expect((0, zooOperations_1.compareAnimalToCageProps)(someAnimal, cage)).toBe(true);
+        });
+        test("compare not identical props for animal and cage", () => {
+            let someAnimal = {
+                name: "someAnimal",
+                neededBiom: "desert",
+                needOfReservoir: true,
+                neededSquare: 10,
+                necessaryFood: 1,
+                isPredator: true,
+            };
+            let cageMembers = new Array();
+            let cage = {
+                biom: "desert",
+                square: 0,
+                hasReservoir: true,
+                members: cageMembers,
+                isForPredators: true,
+            };
+            expect((0, zooOperations_1.compareAnimalToCageProps)(someAnimal, cage)).toBe(false);
+        });
+    });
 });
