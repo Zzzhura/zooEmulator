@@ -1,4 +1,8 @@
-import { addAnimalToCage, calculateAmountOfFoodForCage } from "../src/zooOperations";
+import {
+  addAnimalToCage,
+  calculateAmountOfFoodForCage,
+  isAnimalHasNeededType,
+} from "../src/zooOperations";
 import { Animal, Cage } from "../src/TaskInterfaces";
 
 describe("testing addAnimalToCage", () => {
@@ -173,5 +177,84 @@ describe("testing calculateAmountOfFoodForCage", () => {
     };
     addAnimalToCage(bear, cage);
     expect(calculateAmountOfFoodForCage(cage)).toBe(10);
+  });
+
+  describe("testing isAnimalHasNeededType ", () => {
+    test("adding not predator to predator cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: false,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 1000,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: true,
+      };
+      expect(isAnimalHasNeededType(someAnimal, cage)).toBe(false);
+    });
+    test("adding predator to predator cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: true,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 1000,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: true,
+      };
+      expect(isAnimalHasNeededType(someAnimal, cage)).toBe(true);
+    });
+    test("adding not predator to not predator cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: false,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 1000,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: false,
+      };
+      expect(isAnimalHasNeededType(someAnimal, cage)).toBe(true);
+    });
+    test("adding predator to not predator cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: true,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 1000,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: false,
+      };
+      expect(isAnimalHasNeededType(someAnimal, cage)).toBe(false);
+    });
   });
 });
