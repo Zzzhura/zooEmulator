@@ -29,6 +29,9 @@ export function calculateAmountOfFoodForCage(cage: Cage) {
     }
   }
   return amountOfFood;
- }
+}
+ 
 
-
+export function isAnimalHasNeededType(animal: Animal, cage: Cage) {
+  return animal.isPredator == cage.isForPredators ? true : false;
+}
