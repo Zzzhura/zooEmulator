@@ -2,6 +2,7 @@ import {
   addAnimalToCage,
   calculateAmountOfFoodForCage,
   isAnimalHasNeededType,
+  compareAnimalToCageProps,
 } from "../src/zooOperations";
 import { Animal, Cage } from "../src/TaskInterfaces";
 
@@ -255,6 +256,47 @@ describe("testing calculateAmountOfFoodForCage", () => {
         isForPredators: false,
       };
       expect(isAnimalHasNeededType(someAnimal, cage)).toBe(false);
+    });
+  });
+
+  describe("testing compareAnimalToCageProps", () => {
+    test("compare identical props for animal and cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: true,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 1000,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: true,
+      };
+      expect(compareAnimalToCageProps(someAnimal, cage)).toBe(true);
+    });
+    test("compare not identical props for animal and cage", () => {
+      let someAnimal: Animal = {
+        name: "someAnimal",
+        neededBiom: "desert",
+        needOfReservoir: true,
+        neededSquare: 10,
+        necessaryFood: 1,
+        isPredator: true,
+      };
+      let cageMembers: Animal[] = new Array();
+      let cage: Cage = {
+        biom: "desert",
+        square: 0,
+        hasReservoir: true,
+        members: cageMembers,
+        isForPredators: true,
+      };
+      expect(compareAnimalToCageProps(someAnimal, cage)).toBe(false);
     });
   });
 });
